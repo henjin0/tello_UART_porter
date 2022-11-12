@@ -1,0 +1,2 @@
+# tello_UART_porter
+EDUじゃないTelloをネット越しに動かしたいときに使えます。ピン配置はATOM liteのものを使っています。
