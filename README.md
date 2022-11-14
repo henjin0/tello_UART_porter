@@ -9,6 +9,8 @@ EDUじゃないTelloをネット越しに動かしたいときに使えます。
 - M5Atom: 0.1.0
 - telloArduino: [このcommitの内容を使用した](https://github.com/akshayvernekar/telloArduino/commit/3eb7110bc50598820faf4a8a026e74d9f1082e08)
 
+また、M5ATOMに対する接続ガジェットは[Obniz Board 1Y](https://www.switch-science.com/products/6081)を用いた。ファームウェアは3.5.0。
+
 # 環境構築
 Arduino　IDEにて事前に下記ライブラリをインストールしてください。
 
