@@ -1,7 +1,7 @@
 #include "tello_operation.h"
 
 // WiFi network name and password:
-const char * networkName = "TELLO-600042";//Replace with your Tello SSID
+const char * networkName = "TELLO-xxxxxxx";//Replace with your Tello SSID
 const char * networkPswd = "";
 
 //Are we currently connected?
