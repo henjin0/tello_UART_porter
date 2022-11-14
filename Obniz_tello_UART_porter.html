@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="/css/starter-sample.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script
+      src="https://unpkg.com/obniz@3.24.0/obniz.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  
+<body>
+
+<!-- <div id="obniz-debug"></div> -->
+<!-- <h1>obniz instant html</h1> -->
+<div id="tello-status"><h1>Tello</h1></div>
+
+<script>
+var obniz = new Obniz("xxxx-xxxx");
+obniz.onconnect = async function () {
+  var uart = obniz.getFreeUart();
+
+  uart.start({tx: 11, rx: 10, baud:115200});
+  uart.onreceive = function(data, text) {
+    console.log(data);
+  }
+  
+  await obniz.wait(5000);
+  uart.send([0x74,0x61,0x6B,0x65,0x6F,0x66,0x66,0x0D,0x0A]);
+  console.log("takeoff");
+  document.getElementById("tello-status").innerHTML = `<h1 style="background-color:#87CEEB">takeoff</h1>`;
+  await obniz.wait(8000);
+  uart.send([0x6C,0x61,0x6E,0x64,0x0D,0x0A]);
+  console.log("land");
+  document.getElementById("tello-status").innerHTML = `<h1 style="background-color:#FFFACD">land</h1>`;
+  await obniz.wait(10000);
+  console.log("done");
+  document.getElementById("tello-status").innerHTML = `<h1 style="background-color:#00FF7F">done</h1>`;
+
+}
+
+</script>
+</body>
+</html>
