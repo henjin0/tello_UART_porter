@@ -205,7 +205,7 @@ SerialCommand cmd_getBaro_("getbaro", cmd_getBaro);
 
 void tello_op_setup(const int RXpin, const int TXpin)
 {
-    Serial2.begin(57600, SERIAL_8N1,RXpin,TXpin);
+    Serial2.begin(115200, SERIAL_8N1,RXpin,TXpin);
     serial_commands_2_.AddCommand(&cmd_takeoff_);
     serial_commands_2_.AddCommand(&cmd_land_);
     serial_commands_2_.AddCommand(&cmd_startVideoStream_);
